@@ -318,7 +318,7 @@ The entrances and exits can be placed on any of the four facades of the building
   In this conveyor placement example, the building has a size of 6x8. In the right diagram, the light gray area represents the building.
   The coordinates (0,0) are always in the upper right corner of the building and the positive values go from right to left and from top to bottom.
   Values will be negative if they are above or to the right of the coordinates (0,0).
-  The code shown above represent an industry that have two conveyor (orange area in the diagram) that start at positions (0,4) and (0,5) respectively and have a rotation  of  90 degrees.
+  The code shown above represents an industry that has two conveyors (orange area in the diagram) that start at positions (0,4) and (0,5) respectively and has a rotation  of  90 degrees.
   The rotation of the conveyors goes counterclockwise and starts at 0 degrees at the bottom of the building.
   ![](/images/production-mod-tutorial/image4.png)
 
@@ -337,7 +337,7 @@ The entrances and exits can be placed on any of the four facades of the building
 
 ## Devices recipes (`.recipe` asset)
 
-In order to produce items an industry must have a recipe that tells what item it requires, how much quantity it needs, and what product is manufactured from that quantity of items.
+In order to produce items an industry must have a recipe that tells what item(s) it requires, the quantity it needs, and what product is manufactured from that quantity of items.
 
 ```json
 {
@@ -361,7 +361,7 @@ In order to produce items an industry must have a recipe that tells what item it
 
 * **TargetUri**: Path of the industry's `.recipe` target asset.
 * **Duration**: Time to produce one item.
-* **InputItems** (Array): Shows the items and the quantity of each required to produce products.
+* **InputItems** (Array): Shows the items and the quantity of each required item to produce products.
 	* **Uri**: Path of the `.item` asset.
 	* **Count**: Required quantity of the item.
 
@@ -431,8 +431,8 @@ They require a `.capacities`, `.heapcapacities`, or `.stackcapacities` asset in 
 ## Stores (`.house` asset ):
 
 Stores are the end of the production chain and demand products that are paid depending on supply and demand.
-With town or city growth, stores from time to time will increase in level and  the quantity of products they demand.
-If demand is low and too much cargo is delivered, prices will drop and if demand is very high but we do not cover it, prices will rise but there is a risk that the business will go bankrupt and close.
+With town or city growth, stores will increase in level from time to time  and the quantity of products they demand increases.
+If demand is low and too much cargo is delivered, prices will drop. On the other hand, if demand is very high but we do not cover it, prices will rise but there is a risk that the business will go bankrupt and close.
 
 ![](/images/production-mod-tutorial/image7.png)
 
@@ -466,9 +466,9 @@ If demand is low and too much cargo is delivered, prices will drop and if demand
 * **PopulationRange**: Specifies the population range that the building provides to the city when the city generates the store. It shows the minimum and maximum value of the population that it can have.
 * **CanHaveDemand**: Specifies if the building can demand products.
 * **Size**: Building size in X, Y, Z axes.
-* **Liveries** (Array): Specifies the path of the building's ,obj file. For more information about this section read the guide: Creating your first building mod.
+* **Liveries** (Array): Specifies the path of the building's .obj file. For more information about this section read the guide: Creating your first building mod.
 * **Price**: It is the price of the building, in this case the demolition price.
-* **RunningCosts**: This is the operative cost of the building. As it is a city building, it has no effect on the player's finances. It is `null` value iby default.
+* **RunningCosts**: This is the operative cost of the building. As it is a city building, it has no effect on the player's finances. It is `null` value by default.
 * **Hidden**: This parameter indicates whether the object will appear in the game or in menus as buildable asset in the player's menu. Hidden assets can still be visible in game, e.g. locomotives in recipes.
 
 ## Selling products (`.citydemandrecipe` asset ):
